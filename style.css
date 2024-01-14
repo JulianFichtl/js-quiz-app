@@ -1,0 +1,32 @@
+p {
+    margin-bottom: 0 !important;
+}
+
+body {
+    height: auto;
+    background-color: #d3d3d3;
+}
+
+.center-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.numbersQuestions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.progress {
+    margin-bottom: 10px;
+}
