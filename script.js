@@ -23,6 +23,22 @@ let questions = [
         answer4: "Ingeborg",
         right_answer: 3,
     },
+    {
+        question: "Question 3?",
+        answer1: "Werne",
+        answer2: "Uwe",
+        answer3: "Reinhalt",
+        answer4: "Ingeborg",
+        right_answer: 3,
+    },
+    {
+        question: "Question 3?",
+        answer1: "Werne",
+        answer2: "Uwe",
+        answer3: "Reinhalt",
+        answer4: "Ingeborg",
+        right_answer: 3,
+    },
 ];
 
 let currentQuestion = 0;
@@ -33,6 +49,10 @@ function init() {
 }
 
 function getQuestions() {
+    actualQuestion = questions.length;
+    document.getElementById("currentNumber").innerHTML = currentQuestion + 1;
+    document.getElementById("totalQuestions").innerHTML = actualQuestion;
+
     document.getElementById("question").innerHTML = questions[currentQuestion]["question"];
     document.getElementById("answer1").innerHTML = questions[currentQuestion]["answer1"];
     document.getElementById("answer2").innerHTML = questions[currentQuestion]["answer2"];
@@ -45,14 +65,17 @@ function correctAnswer(answerUser) {
 
     let idRightAnswer = `answer${questions[currentQuestion]["right_answer"]}`;
 
-    if (answer == questions[currentQuestion]["right_answer"]) {
-        document.getElementById(answerUser).parentElement.style.backgroundColor = "green";
+    if (returnCorrectAnswer(answer)) {
+        document.getElementById(answerUser).parentElement.style.backgroundColor = "lightgreen";
     } else {
         document.getElementById(answerUser).parentElement.style.backgroundColor = "red";
-        document.getElementById(idRightAnswer).parentElement.style.backgroundColor = "green";
-        console.log("loserrrr!!!");
+        document.getElementById(idRightAnswer).parentElement.style.backgroundColor = "lightgreen";
     }
     document.getElementById("nextQuestion").disabled = false;
+}
+
+function returnCorrectAnswer(answer) {
+    return answer == questions[currentQuestion]["right_answer"];
 }
 
 function nextQuestion() {
