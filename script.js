@@ -42,6 +42,7 @@ let questions = [
 ];
 
 let currentQuestion = 0;
+let rightAnswers = 0;
 
 function init() {
     getQuestions();
