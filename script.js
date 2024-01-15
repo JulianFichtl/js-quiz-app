@@ -1,48 +1,49 @@
 let questions = [
     {
         question: "Question 1?",
-        answer1: "Julian",
-        answer2: "Peter",
-        answer3: "Diandel",
-        answer4: "Wolfgang",
+        answer1: "Lorem Ipsum",
+        answer2: "Lorem Ipsum",
+        answer3: "Lorem Ipsum",
+        answer4: "Lorem Ipsum",
         right_answer: 1,
     },
     {
         question: "Question 2?",
-        answer1: "Peter",
-        answer2: "Diandel",
-        answer3: "Peter",
-        answer4: "Hans",
-        right_answer: 2,
+        answer1: "Lorem Ipsum",
+        answer2: "Lorem Ipsum",
+        answer3: "Lorem Ipsum",
+        answer4: "Lorem Ipsum",
+        right_answer: 1,
     },
     {
         question: "Question 3?",
-        answer1: "Werne",
-        answer2: "Uwe",
-        answer3: "Reinhalt",
-        answer4: "Ingeborg",
-        right_answer: 3,
+        answer1: "Lorem Ipsum",
+        answer2: "Lorem Ipsum",
+        answer3: "Lorem Ipsum",
+        answer4: "Lorem Ipsum",
+        right_answer: 1,
     },
     {
-        question: "Question 3?",
-        answer1: "Werne",
-        answer2: "Uwe",
-        answer3: "Reinhalt",
-        answer4: "Ingeborg",
-        right_answer: 3,
+        question: "Question 4?",
+        answer1: "Lorem Ipsum",
+        answer2: "Lorem Ipsum",
+        answer3: "Lorem Ipsum",
+        answer4: "Lorem Ipsum",
+        right_answer: 1,
     },
     {
-        question: "Question 3?",
-        answer1: "Werne",
-        answer2: "Uwe",
-        answer3: "Reinhalt",
-        answer4: "Ingeborg",
-        right_answer: 3,
+        question: "Question 5?",
+        answer1: "Lorem Ipsum",
+        answer2: "Lorem Ipsum",
+        answer3: "Lorem Ipsum",
+        answer4: "Lorem Ipsum",
+        right_answer: 1,
     },
 ];
 
 let currentQuestion = 0;
 let rightAnswers = 0;
+let rightIcon = `checkIcon${questions[currentQuestion]["right_answer"]}`;
 
 function init() {
     getQuestions();
@@ -68,9 +69,11 @@ function correctAnswer(answerUser) {
 
     if (returnCorrectAnswer(answer)) {
         document.getElementById(answerUser).parentElement.style.backgroundColor = "#DCFFF1";
+        document.getElementById(rightIcon).classList.remove("d-none");
     } else {
         document.getElementById(answerUser).parentElement.style.backgroundColor = "red";
         document.getElementById(idRightAnswer).parentElement.style.backgroundColor = "#DCFFF1";
+        document.getElementById(rightIcon).classList.remove("d-none");
     }
     document.getElementById("nextQuestion").disabled = false;
 }
@@ -81,6 +84,7 @@ function returnCorrectAnswer(answer) {
 
 function nextQuestion() {
     currentQuestion++;
+    resetAnswers();
     getPercentage();
     getQuestions();
 }
@@ -90,4 +94,14 @@ function getPercentage() {
     let percentage = hundret * currentQuestion;
     document.getElementById("progress-bar").style.width = `${percentage}%`;
     console.log(percentage);
+}
+
+function resetAnswers() {
+    document.getElementById("nextQuestion").disabled = true;
+    document.getElementById(rightIcon).classList.add("d-none");
+
+    for (let i = 1; i <= 4; i++) {
+        document.getElementById(`answer${i}`).parentElement.style.backgroundColor = "";
+    }
+    return;
 }

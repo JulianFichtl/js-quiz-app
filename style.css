@@ -2,6 +2,10 @@ p {
     margin-bottom: 0 !important;
 }
 
+b {
+    margin-right: 4px;
+}
+
 body {
     height: auto;
     background-color: #d3d3d3;
@@ -29,4 +33,18 @@ body {
 
 .progress {
     margin-bottom: 10px;
+}
+
+.material-symbols-outlined {
+    position: absolute;
+    right: 10px;
+    top: 16px;
+}
+
+.card-body {
+    position: relative;
+}
+
+.d-none {
+    display: none;
 }
