@@ -66,10 +66,10 @@ function correctAnswer(answerUser) {
     let idRightAnswer = `answer${questions[currentQuestion]["right_answer"]}`;
 
     if (returnCorrectAnswer(answer)) {
-        document.getElementById(answerUser).parentElement.style.backgroundColor = "lightgreen";
+        document.getElementById(answerUser).parentElement.style.backgroundColor = "#DCFFF1";
     } else {
         document.getElementById(answerUser).parentElement.style.backgroundColor = "red";
-        document.getElementById(idRightAnswer).parentElement.style.backgroundColor = "lightgreen";
+        document.getElementById(idRightAnswer).parentElement.style.backgroundColor = "#DCFFF1";
     }
     document.getElementById("nextQuestion").disabled = false;
 }
